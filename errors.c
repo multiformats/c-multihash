@@ -3,7 +3,7 @@
 
 static const struct mh_error_desc {
 	int code;
-	char *message;
+	const char *message;
 } mh_errordesc[] = {
 	{ MH_E_UNKNOWN_CODE, "unknown multihash code" },
 	{ MH_E_TOO_SHORT, "multihash too short. must be > 3 bytes" },
@@ -13,6 +13,11 @@ static const struct mh_error_desc {
 };
 
 const char *mh_error_string(mh_error code) {
-	code += 1;
-	return "";
+	unsigned int i = 0;
+	for (; i < sizeof(mh_errordesc); i++) {
+		if (mh_errordesc[i].code == code)
+			return mh_errordesc->message;
+	}
+
+	return "unknown error code";
 }
