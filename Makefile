@@ -24,9 +24,6 @@ all: ${TARGET_LIB}
 $(TARGET_LIB): $(OBJS)
 	$(CC) ${LDFLAGS} -o $@ $^
 
-test: test.o pid.o
-	$(C) $(LDFLAGS) -o test test.o pid.o $(LDLIBS) 
-
 depend: .depend
 
 .depend: $(SRCS)
