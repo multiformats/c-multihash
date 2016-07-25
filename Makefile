@@ -7,36 +7,51 @@ CFLAGS = -fPIC -g -O2 -std=c99 \
 	-Wold-style-definition \
 	-Woverflow \
 	-Wpointer-arith \
-	-Wstrict-prototypes \
 	-Wunused \
 	-Wvla
 
-LDFLAGS = -g -shared
+LDFLAGS = -g
 LDLIBS =
 
 TARGET_LIB = mulithash.so
 
 SRCS = errors.c
-OBJS = $(subst .c,.o,$(SRCS))
+OBJS = $(SRCS:.c=.o)
 
 all: ${TARGET_LIB} 
 
 $(TARGET_LIB): $(OBJS)
-	$(CC) ${LDFLAGS} -o $@ $^
+	$(CC) -g -shared -o $@ $^
 
-depend: .depend
+# Tests
 
-.depend: $(SRCS)
-	rm -f ./.depend
-	$(CC) $(CFLAGS) -MM $^>>./.depend;
+TEST_SRCS = $(wildcard test/test_*.c)
+TEST_OBJS = $(TEST_SRCS:.c=.o)
+TEST_BINS = $(TEST_OBJS:.o=.out)
+
+PHONY += tests
+tests: $(TEST_BINS)
+	@for t in $^; do               \
+	  echo;                        \
+	  echo '***' "$$t" '***';      \
+	  LD_LIBRARY_PATH=. "./$$t";   \
+	  echo;                        \
+	done
+
+
+test/test_%.out: test/test_%.o $(TARGET_LIB)
+	$(CC) $(LDFLAGS) $(TARGET_LIB) $^ -o $@
+
+# Utils
+
+PHONY += clean dist-clean
 
 clean:
 	$(RM) $(OBJS)
+	$(RM) $(TEST_OBJS)
+	$(RM) $(TEST_BINS)
 	$(RM) $(TARGET_LIB)
 
 dist-clean: clean
-	$(RM) *~ .depend
 
-.PHONY: all depend clean dist-clean
-
-include .depend
+.PHONY: $(PHONY)
