@@ -39,8 +39,8 @@ TEST_SRCS = $(wildcard tests/c/test_*.c)
 TEST_OBJS = $(TEST_SRCS:.c=.o)
 TEST_BINS = $(TEST_OBJS:.o=)
 
-PHONY += tests
-tests: $(TEST_BINS)
+PHONY += test
+test: $(TEST_BINS)
 	@for t in $^; do               \
 	  echo;                        \
 	  echo '***' "$$t.c" '***';    \
