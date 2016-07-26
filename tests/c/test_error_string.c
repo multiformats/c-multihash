@@ -1,7 +1,7 @@
 #include <string.h>
 #include "minunit.h"
 
-#include "errors.h"
+#include "mh/errors.h"
 
 char error_buf[256];
 

@@ -1,5 +1,5 @@
 /* vim: set ts=8 sw=8 noexpandtab: */
-#include "errors.h"
+#include "mh/errors.h"
 
 static const struct mh_error_desc {
 	int code;

@@ -1,7 +1,5 @@
 *
 
 !.gitignore
-!*.c
-!*.h
 !Makefile
-!tests
+!**/

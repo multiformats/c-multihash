@@ -1,5 +1,5 @@
 /* vim: set ts=8 sw=8 noexpandtab: */
-
+#include "errors.h"
 
 // list of avaliable hash functions.
 typedef enum {
@@ -28,7 +28,7 @@ typedef struct {
 	mh_hash hash;
 	int code;
 	int length;
-} mh_hashinfo
+} mh_hashinfo;
 
 // decodes code info hash info, leaves length field zeroed
 mh_error mh_hashinfo_from_code(int code, mh_hashinfo *hinfo);

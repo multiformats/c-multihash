@@ -16,15 +16,21 @@ LDLIBS =
 TARGET_LIB = mulithash.a
 TARGET_BIN = multihash
 
-SRCS = errors.c hashes.c
+MAIN = src/main.c
+MAIN_O = $(MAIN:.c=.o)
+
+SRCS = src/errors.c src/hashes.c
 OBJS = $(SRCS:.c=.o)
+
+src/%.o: src/%.c
+	$(CC) $(CFLAGS) -c -I include $^ -o $@
 
 all: $(TARGET_LIB) $(TARGET_BIN)
 
 $(TARGET_LIB): $(OBJS)
 	ar rcs $@ $^
 
-$(TARGET_BIN): main.o $(TARGET_LIB)
+$(TARGET_BIN): $(MAIN_O) $(TARGET_LIB)
 	$(CC) $(LDFLAGS) $^ -o $@
 
 # Tests
@@ -42,7 +48,7 @@ tests: $(TEST_BINS)
 	done
 
 tests/c/test_%.o: tests/c/test_%.c
-	$(CC) -c -I. $^ -o $@
+	$(CC) $(CFLAGS) -c -I include $^ -o $@
 
 tests/c/test_%: tests/c/test_%.o $(TARGET_LIB)
 	$(CC) $(LDFLAGS) $^ -o $@
@@ -56,6 +62,7 @@ clean:
 	$(RM) $(TEST_BINS)
 	$(RM) $(TARGET_LIB)
 	$(RM) $(TARGET_BIN)
+	$(RM) $(MAIN_O)
 
 dist-clean: clean
 
