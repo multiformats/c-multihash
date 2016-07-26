@@ -15,11 +15,12 @@ typedef enum {
 	MH_H_BLAKE2B,
 	MH_H_BLAKE2S,
 
-	HM_H_COUNT // number of hash functions
+	MH_H_COUNT // number of hash functions
 } mh_hash;
 
-// returns default size in bytes of given hash function
-int mh_hash_default_size(mh_hash hash);
+// returns default length in bytes of given hash function
+//  or -1 in case of invalid arguemnt
+int mh_hash_default_length(mh_hash hash);
 
 // returns wire format code of given hash function
 int mh_hash_code(mh_hash hash);

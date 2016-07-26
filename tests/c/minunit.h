@@ -9,8 +9,8 @@ static char *mu_all_tests(void);
 
 int main(void) {
 	char *result = mu_all_tests();
-	if (result != 0) {
-		printf("%s\n", result);
+	if (result != NULL) {
+		printf("error: %s\n", result);
 	}
 	else {
 		printf("ALL TESTS PASSED\n");

@@ -1,3 +1,4 @@
+/* vim: set ts=8 sw=8 noexpandtab: */
 #include <string.h>
 #include "minunit.h"
 
@@ -12,10 +13,10 @@ static char *test_error_messages_exist(void) {
 		mu_assert(error_buf, strlen(mh_error_string((mh_error) i)));
 	}
 
-	return 0;
+	return NULL;
 }
 
 static char *mu_all_tests(void) {
 	mu_run_test(test_error_messages_exist);
-	return 0;
+	return NULL;
 }

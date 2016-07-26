@@ -41,10 +41,10 @@ TEST_BINS = $(TEST_OBJS:.o=)
 
 PHONY += test
 test: $(TEST_BINS)
-	@for t in $^; do               \
-	  echo;                        \
-	  echo '***' "$$t.c" '***';    \
-	  "./$$t";                     \
+	@for t in $^; do                                   \
+	  echo;                                            \
+	  echo '***' "$$t.c" '***';                        \
+	  "./$$t" || printf "\n!!! TEST FAILURE !!!\n";    \
 	done
 
 tests/c/test_%.o: tests/c/test_%.c
@@ -65,5 +65,8 @@ clean:
 	$(RM) $(MAIN_O)
 
 dist-clean: clean
+
+PHONY += build
+build: all
 
 .PHONY: $(PHONY)
