@@ -16,7 +16,7 @@ LDLIBS =
 TARGET_LIB = mulithash.a
 TARGET_BIN = multihash
 
-SRCS = errors.c
+SRCS = errors.c hashes.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET_LIB) $(TARGET_BIN)
