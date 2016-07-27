@@ -11,6 +11,7 @@ int main(void) {
 	char *result = mu_all_tests();
 	if (result != NULL) {
 		printf("error: %s\n", result);
+		printf("!!! TEST FAILURE !!!\n");
 	}
 	else {
 		printf("ALL TESTS PASSED\n");
