@@ -18,25 +18,9 @@ typedef enum {
 	MH_H_COUNT // number of hash functions
 } mh_hash;
 
-// returns default length in bytes of given hash function
-//  or -1 in case of invalid arguemnt
-int mh_hash_default_length(mh_hash hash);
+int mh_hash_length(const unsigned char multihash[], int len, int *hash_length);
 
-// returns wire format code of given hash function
-int mh_hash_code(mh_hash hash);
-
-typedef struct {
-	mh_hash hash;
-	int code;
-	int length;
-} mh_hashinfo;
-
-// decodes code info hash info, leaves length field zeroed
-mh_error mh_hashinfo_from_code(int code, mh_hashinfo *hinfo);
-
-// decodes bytes into hashinfo
-mh_error mh_hashinfo_from_bytes(char bytes[2], mh_hashinfo *hinfo);
-
+int mh_hash_function(const unsigned char multihash[], int len, mh_hash *hash);
 
 
 

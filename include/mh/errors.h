@@ -2,16 +2,15 @@
 #ifndef ERROR_H
 #define ERROR_H
 
-typedef enum {
-	MH_E_UNKNOWN_CODE = -1,
-	MH_E_TOO_SHORT = -2,
-	MH_E_TOO_LONG = -3,
-	MH_E_LEN_NOT_SUPPORTED = -4,
 
-	// Should be always last, if you are adding error update this code.
-	MH_E_LAST = -5
-} mh_error;
+#define MH_E_NO_ERROR 0
+#define MH_E_UNKNOWN_CODE -1
+#define MH_E_TOO_SHORT -2
+#define MH_E_TOO_LONG -3
+#define MH_E_LEN_NOT_SUPPORTED -4
 
-const char *mh_error_string(mh_error code);
+#define MH_E_LAST -5
+
+const char *mh_error_string(int code);
 
 #endif /* end of include guard */
