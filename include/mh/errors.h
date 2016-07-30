@@ -1,4 +1,3 @@
-/* vim: set ts=8 sw=8 noexpandtab: */
 #ifndef ERROR_H
 #define ERROR_H
 

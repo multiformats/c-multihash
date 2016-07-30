@@ -1,4 +1,3 @@
-/* vim: set ts=8 sw=8 noexpandtab: */
 #include "errors.h"
 
 // list of avaliable hash functions.

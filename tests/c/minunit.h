@@ -1,4 +1,3 @@
-/* vim: set ts=8 sw=8 noexpandtab: */
 #include <stdio.h>
 
 #define mu_assert(message, test) do { if (!(test)) return message; } while (0)

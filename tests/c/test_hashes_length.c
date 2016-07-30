@@ -1,4 +1,3 @@
-/* vim: set ts=8 sw=8 noexpandtab: */
 #include <string.h>
 #include "minunit.h"
 

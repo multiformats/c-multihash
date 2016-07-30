@@ -1,4 +1,3 @@
-/* vim: set ts=8 sw=8 noexpandtab: */
 #include "mh/errors.h"
 
 const char *mh_error_string(int code) {
