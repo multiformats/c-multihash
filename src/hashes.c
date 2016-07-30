@@ -1,5 +1,6 @@
 /* vim: set ts=8 sw=8 noexpandtab: */
 #include "mh/hashes.h"
+#include "mh/errors.h"
 
 
 static const int hash_lengths[] = {
@@ -12,17 +13,16 @@ static const int hash_lengths[] = {
 	28, // sha3-224
 	16, // shake-128
 	32, // shake-256
-	// TODO(Kubuxu): implement blake lengths
+	64, // blake2b
+	32, // blake2s
 };
 
 
 int mh_hash_default_length(mh_hash hash) {
-	if (hash > MH_H_SHAKE_256)
-		return -2; // TODO(Kubuxu): remove it after blake is implemented
 	if (hash < 0 || hash >= MH_H_COUNT)
-		return -1;
+		return MH_;
 
-	return hash_lengths[0];
+	return hash_lengths[hash];
 }
 
 

@@ -18,6 +18,9 @@ typedef enum {
 	MH_H_COUNT // number of hash functions
 } mh_hash;
 
+// returns length in bytes or if returns is < 0 it is an error
+int mh_hash_default_length(mh_hash hash);
+
 int mh_hash_length(const unsigned char multihash[], int len, int *hash_length);
 
 int mh_hash_function(const unsigned char multihash[], int len, mh_hash *hash);
