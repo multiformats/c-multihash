@@ -47,7 +47,7 @@ test: $(TEST_BINS)
 	  "./$$t" || ERROR=1;                              \
 	done;                                              \
 	echo;                                              \
-	[ "$${ERROR-0}" -eq "1" ] && exit 1
+	exit $$ERROR
 
 tests/c/test_%.o: tests/c/test_%.c tests/c/minunit.h
 	$(CC) $(CFLAGS) -c -I include $< -o $@
