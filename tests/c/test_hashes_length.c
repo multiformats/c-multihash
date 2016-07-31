@@ -10,7 +10,7 @@ static char *test_all_hashes_have_lengths(void) {
 	int i = 0;
 	int length = 0;
 	for (; i < MH_H_COUNT; i++) {
-		length = mh_hash_default_length(i);
+		length = mh_hash_default_length(mh_all_hashes[i]);
 		sprintf(error_buf, "mh_hash_default_length: hash %d"
 				" returned invalid (%d) default length",
 				i, length);
