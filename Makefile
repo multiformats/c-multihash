@@ -19,7 +19,7 @@ TARGET_BIN = multihash
 MAIN = src/main.c
 MAIN_O = $(MAIN:.c=.o)
 
-SRCS = src/hashes.c src/errors.c
+SRCS = src/hashes.c src/errors.c src/multihash.c
 OBJS = $(SRCS:.c=.o)
 
 src/%.o: src/%.c

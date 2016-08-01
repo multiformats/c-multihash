@@ -7,12 +7,12 @@ const char *mh_error_string(int code) {
 		case MH_E_UNKNOWN_CODE:
 			return "unknown multihash code";
 		case MH_E_TOO_SHORT:
-			return "multihash too short. must be > 3 bytes";
+			return "multihash too short. must be > 2 bytes";
 		case MH_E_TOO_LONG:
 			return "multihash too long. must be < 129 bytes";
-		case MH_E_LEN_NOT_SUPPORTED:
-			return "multihash does not yet support"
-				" digsets linger than 127 bytes";
+		case MH_E_VARINT_NOT_SUPPORTED:
+			return "c-multihash does not yet support"
+				" varint encoding";
 		default:
 			return "unknown error code";
 	}

@@ -35,12 +35,3 @@ const char *mh_hash_name(int hash);
 
 // returns length in bytes or if returns is < 0 it is an error
 int mh_hash_default_length(int hash);
-
-int mh_hash_length(const unsigned char multihash[], int len, int *hash_length);
-
-int mh_hash_function(const unsigned char multihash[], int len, int *hash);
-
-
-
-
-
