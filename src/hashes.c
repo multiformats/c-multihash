@@ -3,7 +3,7 @@
 #include "mh/hashes.h"
 
 #include "mh/errors.h"
-#include "mh/assert.h"
+#include "mh/generic.h"
 
 
 static const struct hash_info {

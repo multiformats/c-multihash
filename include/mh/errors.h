@@ -7,6 +7,7 @@
 #define MH_E_TOO_SHORT -2
 #define MH_E_TOO_LONG -3
 #define MH_E_VARINT_NOT_SUPPORTED -4
+#define MH_E_DIGSET_TOO_LONG -5
 
 #define MH_E_LAST -5
 

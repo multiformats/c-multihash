@@ -13,6 +13,9 @@ const char *mh_error_string(int code) {
 		case MH_E_VARINT_NOT_SUPPORTED:
 			return "c-multihash does not yet support"
 				" varint encoding";
+		case MH_E_DIGSET_TOO_LONG:
+			return "c-multihash does not support digsets"
+				" longer than 127 bytes yet";
 		default:
 			return "unknown error code";
 	}
