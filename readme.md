@@ -34,4 +34,4 @@ Small note: If editing the Readme, please conform to the [standard-readme](https
 
 ## License
 
-[MIT](LICENSE) © Kubuxu
+[MIT](LICENSE) © Protocol Labs, Inc
