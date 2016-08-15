@@ -24,6 +24,10 @@ static const struct hash_info {
 	{ MH_H_BLAKE2S, "blake2s", 32 }
 };
 
+// REVIEW NOTE:
+// This could just be a table where the index into the array is the hash
+// function.  This would make the lookups much simpler.
+
 mh_assert_static(sizeof(hash_infos) / sizeof(hash_infos[0]) == MH_H_COUNT);
 
 // Searches for given hash in hash info table
@@ -40,7 +44,8 @@ static const struct hash_info *find_hash(int hash) {
 
 const char *mh_hash_name(int hash) {
 	const struct hash_info *info = find_hash(hash);
-	return info ? info->name : NULL;
+	return (info != NULL) ? info->name : NULL;
+	// I prefer explicit checks against null pointers
 }
 
 
