@@ -40,11 +40,11 @@ static const struct hash_info *find_hash(int hash) {
 
 const char *mh_hash_name(int hash) {
 	const struct hash_info *info = find_hash(hash);
-	return info ? info->name : NULL;
+	return (info != NULL) ? info->name : NULL;
 }
 
 
 int mh_hash_default_length(int hash) {
 	const struct hash_info *info = find_hash(hash);
-	return info ? info->length : MH_E_UNKNOWN_CODE;
+	return (info != NULL) ? info->length : MH_E_UNKNOWN_CODE;
 }
