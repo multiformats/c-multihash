@@ -42,7 +42,7 @@ static int check_multihash(const unsigned char mh[], size_t len) {
 
 // returns hash code or error (which is < 0)
 int mh_multihash_hash(const unsigned char *mh, size_t len) {
-	int err = check_multihash(multihash, len);
+	int err = check_multihash(mh, len);
 	if (err)
 		return err;
 
@@ -52,7 +52,7 @@ int mh_multihash_hash(const unsigned char *mh, size_t len) {
 
 // returns length of multihash or error (which is < 0)
 int mh_multihash_length(const unsigned char *mh, size_t len) {
-	int err = check_multihash(multihash, len);
+	int err = check_multihash(mh, len);
 	if (err)
 		return err;
 

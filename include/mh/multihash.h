@@ -11,8 +11,8 @@ int mh_multihash_length(const unsigned char *multihash, size_t len);
 
 // gives access to raw digest inside multihash buffer
 // returns 0 or negative error
-int mh_multihash_digest(const unsigned char *multihash, size_t len,
-	const unsigned char **digest, size_t *digest_len);
+int mh_multihash_digest(unsigned char *multihash, size_t len,
+	 unsigned char **digest, size_t *digest_len);
 
 // returns length in bytes of buffer needed to store multihash
 // with given hashcode and with given digest length
