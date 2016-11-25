@@ -1,9 +1,7 @@
 #include <stdlib.h>
 
-#include "mh/hashes.h"
-
-#include "mh/errors.h"
-#include "mh/generic.h"
+#include <mh/hashes.h>
+#include <mh/generic.h>
 
 
 static const struct hash_info {

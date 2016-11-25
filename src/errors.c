@@ -1,4 +1,4 @@
-#include "mh/errors.h"
+#include <mh/errors.h>
 
 const char *mh_error_string(int code)
 {
