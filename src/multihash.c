@@ -9,7 +9,8 @@
 
 #define VARINT_MASK (1 << 7)
 
-static int check_len(size_t len) {
+static int check_len(size_t len)
+{
 	if (len < 1)
 		return MH_E_TOO_SHORT;
 	else if (len >= 128)
@@ -18,7 +19,8 @@ static int check_len(size_t len) {
 	return MH_E_NO_ERROR;
 }
 
-static int check_multihash(const unsigned char mh[], size_t len) {
+static int check_multihash(const unsigned char *mh, size_t len)
+{
 	int err;
 
 	if (len < 3)
@@ -41,7 +43,8 @@ static int check_multihash(const unsigned char mh[], size_t len) {
 
 
 // returns hash code or error (which is < 0)
-int mh_multihash_hash(const unsigned char *mh, size_t len) {
+int mh_multihash_hash(const unsigned char *mh, size_t len)
+{
 	int err = check_multihash(mh, len);
 	if (err)
 		return err;
@@ -51,7 +54,8 @@ int mh_multihash_hash(const unsigned char *mh, size_t len) {
 
 
 // returns length of multihash or error (which is < 0)
-int mh_multihash_length(const unsigned char *mh, size_t len) {
+int mh_multihash_length(const unsigned char *mh, size_t len)
+{
 	int err = check_multihash(mh, len);
 	if (err)
 		return err;
@@ -62,7 +66,8 @@ int mh_multihash_length(const unsigned char *mh, size_t len) {
 // gives access to raw digest inside multihash buffer
 // returns 0 or negative error
 int mh_multihash_digest(unsigned char *multihash, size_t len, unsigned char **digest,
-		size_t *digest_len) {
+		size_t *digest_len)
+{
 	int err = check_multihash(multihash, len);
 	if (err)
 		return err;
@@ -73,7 +78,8 @@ int mh_multihash_digest(unsigned char *multihash, size_t len, unsigned char **di
 	return 0;
 }
 
-int mh_new_length(int code, size_t hash_len) {
+int mh_new_length(int code, size_t hash_len)
+{
 	// right now there is no varint support
 	// so length required is 2 + hash_len
 	UNUSED(code);
@@ -81,7 +87,8 @@ int mh_new_length(int code, size_t hash_len) {
 }
 
 int mh_new(unsigned char *buffer, int code, const unsigned char *digest,
-	size_t digest_len) {
+	size_t digest_len)
+{
 	if (code & VARINT_MASK)
 		return MH_E_VARINT_NOT_SUPPORTED;
 	if (digest_len > 127)

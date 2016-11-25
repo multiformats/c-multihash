@@ -1,6 +1,7 @@
 #include "mh/errors.h"
 
-const char *mh_error_string(int code) {
+const char *mh_error_string(int code)
+{
 	switch (code) {
 		case MH_E_NO_ERROR:
 			return "no error";
