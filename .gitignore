@@ -1,5 +1,7 @@
 *
 
 !.gitignore
-!Makefile
+!CMakeLists.txt
+!README.md
+!LICENSE
 !**/

@@ -1,9 +1,7 @@
 #include <stdlib.h>
 
-#include "mh/hashes.h"
-
-#include "mh/errors.h"
-#include "mh/generic.h"
+#include <mh/hashes.h>
+#include <mh/generic.h>
 
 
 static const struct hash_info {
@@ -27,7 +25,8 @@ static const struct hash_info {
 mh_assert_static(sizeof(hash_infos) / sizeof(hash_infos[0]) == MH_H_COUNT);
 
 // Searches for given hash in hash info table
-static const struct hash_info *find_hash(int hash) {
+static const struct hash_info *find_hash(int hash)
+{
 	// naive search, could be replaced with binary
 	unsigned int i = 0;
 	for (; i < MH_H_COUNT; i++) {
@@ -38,13 +37,15 @@ static const struct hash_info *find_hash(int hash) {
 	return NULL;
 }
 
-const char *mh_hash_name(int hash) {
+const char *mh_hash_name(int hash)
+{
 	const struct hash_info *info = find_hash(hash);
 	return (info != NULL) ? info->name : NULL;
 }
 
 
-int mh_hash_default_length(int hash) {
+int mh_hash_default_length(int hash)
+{
 	const struct hash_info *info = find_hash(hash);
 	return (info != NULL) ? info->length : MH_E_UNKNOWN_CODE;
 }
