@@ -11,13 +11,13 @@ This is an implementation of [multihash](https://github.com/multiformats/multiha
 
 ## Install
 
-```
+```sh
 $ make
 ```
 
 ## Usage
 
-```
+```sh
 $ ./multihash
 ```
 
