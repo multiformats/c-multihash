@@ -11,14 +11,14 @@ This is an implementation of [multihash](https://github.com/multiformats/multiha
 
 ## Install
 
-```
-> TODO
+```sh
+$ make
 ```
 
 ## Usage
 
-```
-> TODO
+```sh
+$ ./multihash
 ```
 
 ## Maintainers
