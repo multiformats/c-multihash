@@ -1,3 +1,5 @@
+**This project is no longer maintained and has been archived.**
+
 # c-multihash
 
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
